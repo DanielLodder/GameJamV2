@@ -18,14 +18,15 @@ public class PlayerMovement : MonoBehaviour
     public float rotationX = 0;
     public float rotationY = 0;
 
+
     private void Awake()
     {
         playerInput = GetComponent<PlayerInput>();
 
         PlayerInputActions playerInputActions = new PlayerInputActions();
         playerInputActions.Player.Enable();
-        playerInputActions.Player.Move.performed += Move_performed;
         playerInputActions.Player.Look.performed += Rotation_performed;
+        playerInputActions.Player.Move.performed += Move_performed;
 
     }
     public void Move_performed(InputAction.CallbackContext context)
@@ -38,7 +39,6 @@ public class PlayerMovement : MonoBehaviour
     }
     public void Rotation_performed(InputAction.CallbackContext context)
     {
-        Debug.Log(context);
         Cursor.lockState = CursorLockMode.Locked;
         Cursor.visible = false;
 
