@@ -27,10 +27,11 @@ Transform:
   m_GameObject: {fileID: 221345677157236020}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0.5, z: -2.48}
+  m_LocalPosition: {x: 0, y: 0.5, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
-  m_Children: []
+  m_Children:
+  - {fileID: 576211175013770797}
   m_Father: {fileID: 3072996282045627618}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!20 &5101458909867782121
@@ -246,6 +247,7 @@ GameObject:
   - component: {fileID: 6321005811606283339}
   - component: {fileID: 2294081631582195657}
   - component: {fileID: 8238210054624278744}
+  - component: {fileID: 6018814545119344607}
   m_Layer: 0
   m_Name: Player
   m_TagString: Untagged
@@ -490,8 +492,57 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   playerRB: {fileID: 6321005811606283339}
   movementSpeed: 1
+  wordPuzzle: {fileID: 0}
   camHolder: {fileID: 4372576414317156751}
   playerObject: {fileID: 7134754715035460276}
   camSensitivity: 1
   rotationX: 0
   rotationY: 0
+  canWalk: 1
+  canLook: 1
+--- !u!114 &6018814545119344607
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7134754715035460276}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ab8782fe576f5b1468238d6de2498234, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  itemHolder: {fileID: 7479025731304744928}
+  mainCamera: {fileID: 5101458909867782121}
+  pickupRange: 5
+--- !u!1 &7479025731304744928
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 576211175013770797}
+  m_Layer: 0
+  m_Name: ItemHolder
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &576211175013770797
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7479025731304744928}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0.34, y: -0.37600005, z: 0.734}
+  m_LocalScale: {x: 0.2, y: 0.2, z: 0.2}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 8821654862976231448}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
