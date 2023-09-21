@@ -59,6 +59,11 @@ public class PlayerMovement : MonoBehaviour
         playerObject.transform.rotation = Quaternion.Euler(0, rotationY, 0);
         camHolder.transform.localRotation = Quaternion.Euler(rotationX, 0, 0);
         }
+        else
+        {
+            Cursor.visible = true;
+            Cursor.lockState = CursorLockMode.None;
+        }
 
     }
 }
