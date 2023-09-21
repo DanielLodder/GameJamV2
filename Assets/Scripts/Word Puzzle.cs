@@ -7,7 +7,7 @@ using TMPro;
 public class WordPuzzle : MonoBehaviour
 {
     [SerializeField] private string Code;
-    [SerializeField] private NewPlayerMovement newPlayerController;
+    [SerializeField] private PlayerMovement PlayerController;
     [SerializeField] private GameObject bookUI;
     private GameObject inputText;
 
@@ -26,12 +26,8 @@ public class WordPuzzle : MonoBehaviour
     {
         if (Input.GetKeyDown(KeyCode.E) && canInteract) // Checks if the player can interact and is pressing E
         {
-            Cursor.lockState = CursorLockMode.None; // Unlocking the cursor
-            
-
-            newPlayerController.canJump = false;
-            newPlayerController.canLook = false;
-            newPlayerController.canWalk = false;
+            PlayerController.canLook = false;
+            PlayerController.canWalk = false;
         }
 
         // Activating the book gui
@@ -71,9 +67,8 @@ public class WordPuzzle : MonoBehaviour
             bookUI.SetActive(false); // Disabling the bookui
             Cursor.lockState = CursorLockMode.Locked; // Locking the cursor
 
-            newPlayerController.canJump = true;
-            newPlayerController.canLook = true;
-            newPlayerController.canWalk = true;
+            PlayerController.canLook = true;
+            PlayerController.canWalk = true;
 
             // Opening the correct door
            // crawlDoorHandler.OpenDoor(openDoor);
@@ -87,8 +82,7 @@ public class WordPuzzle : MonoBehaviour
 
        
 
-        newPlayerController.canJump = true;
-        newPlayerController.canLook = true;
-        newPlayerController.canWalk = true;
+        PlayerController.canLook = true;
+        PlayerController.canWalk = true;
     }
 }

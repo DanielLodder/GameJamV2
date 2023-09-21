@@ -8,6 +8,7 @@ public class PlayerMovement : MonoBehaviour
     //player movements
     [SerializeField] Rigidbody playerRB;
     [SerializeField] float movementSpeed;
+    [SerializeField] private WordPuzzle wordPuzzle;
     private PlayerInput playerInput;
 
     //player camera
@@ -18,6 +19,8 @@ public class PlayerMovement : MonoBehaviour
     public float rotationX = 0;
     public float rotationY = 0;
 
+    public bool canWalk = true;
+    public bool canLook = true;
 
     private void Awake()
     {
@@ -31,14 +34,19 @@ public class PlayerMovement : MonoBehaviour
     }
     public void Move_performed(InputAction.CallbackContext context)
     {
+        if (canWalk == true)
+        {
         Vector3 rawMove = context.ReadValue<Vector3>() * (movementSpeed * 10);
 
         Vector3 movementVector = transform.right * rawMove.x + transform.forward * rawMove.z;
         movementVector.y = playerRB.velocity.y;
         playerRB.velocity = movementVector;
+        }
     }
     public void Rotation_performed(InputAction.CallbackContext context)
     {
+        if (canLook == true)
+        {
         Cursor.lockState = CursorLockMode.Locked;
         Cursor.visible = false;
 
@@ -50,5 +58,7 @@ public class PlayerMovement : MonoBehaviour
 
         playerObject.transform.rotation = Quaternion.Euler(0, rotationY, 0);
         camHolder.transform.localRotation = Quaternion.Euler(rotationX, 0, 0);
+        }
+
     }
 }
